@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
+  push:
+    branches: dev
 
 jobs:
   build:
@@ -11,8 +11,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: dev
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
