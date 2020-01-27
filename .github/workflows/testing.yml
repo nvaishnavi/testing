@@ -8,14 +8,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        mongodb-version: ["4.0", "4.2"]
-
+    
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: dev
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
@@ -23,9 +18,10 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
     - name: Start MongoDB
-      uses: wbari/start-mongoDB@v0.2
+      uses: getong/mongo-action@v1.1
       with:
-        mongodb-version: ${{ matrix.mongodb-version }}
+        mongo version: '4.2-bionic'
+        host port: 27017
     - name: Build and test with cuucmber
       run: |
         gem install bundler
