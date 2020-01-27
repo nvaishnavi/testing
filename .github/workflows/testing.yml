@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        mongodb-version: [4.0, 4.2]
+        mongodb-version: ["4.0", "4.2"]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
     - name: Start MongoDB
-      uses: superchargejs/mongodb-github-action@v1
+      uses: wbari/start-mongoDB@v0.2
       with:
         mongodb-version: ${{ matrix.mongodb-version }}
     - name: Build and test with cuucmber
