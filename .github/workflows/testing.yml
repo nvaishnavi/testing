@@ -8,6 +8,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:4.0.10
+        ports:
+          - 27017:27017
     
     steps:
     - uses: actions/checkout@v2
@@ -17,13 +22,8 @@ jobs:
     - run: ruby -v
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
-    - name: Start MongoDB
-      uses: getong/mongo-action@v1.1
-      with:
-        mongo version: '4.2-bionic'
-        host port: 27017
-    - name: Build and test with cuucmber
+    - name: Build and test with cucumber
       run: |
         gem install bundler
         bundle install
-        bundle exec cucumber
+        docker run bundle exec cucumber
