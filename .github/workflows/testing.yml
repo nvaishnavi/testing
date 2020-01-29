@@ -26,4 +26,5 @@ jobs:
       run: |
         gem install bundler
         bundle install
-        docker exec cucumber
+        docker build -t cucumber
+        docker run cucumber
