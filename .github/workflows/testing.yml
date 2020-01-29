@@ -25,7 +25,7 @@ jobs:
     - name: Install mongodb tools
       run: |
         sudo apt-get update
-        sudo apt-get install -y mongodb-org=4.0.10 mongodb-org-server=4.0.10 mongodb-org-shell=4.0.10 mongodb-org-mongos=4.0.10 mongodb-org-tools=4.0.10
+        sudo apt-get install -y mongodb-org
     - name: Build and test with cucumber
       run: |
         gem install bundler
