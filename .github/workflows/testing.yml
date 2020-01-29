@@ -22,6 +22,8 @@ jobs:
     - run: ruby -v
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
+    - name: Install mongodb tools
+      run: sudo apt-get install -y mongodb-org-tools=4.0.10
     - name: Build and test with cucumber
       run: |
         gem install bundler
