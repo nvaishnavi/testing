@@ -27,4 +27,5 @@ jobs:
         gem install bundler
         bundle install
         bundle exec cucumber features/capybara.feature
-        bundle exec cucumber features/named_driver_feature.feature
+    - name: run test
+      run: bundle exec cucumber features/named_driver_feature.feature
