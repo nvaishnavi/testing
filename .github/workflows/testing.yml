@@ -30,4 +30,5 @@ jobs:
       run: |
         gem install bundler
         bundle install
-        mongorestore --db templateclone /home/bdcvit.com/vaishnavin/Desktop/test/testing/templateclone
+        bundle exec cucumber features/capybara.feature
+        bundle exec cucumber features/named_driver_feature.feature
