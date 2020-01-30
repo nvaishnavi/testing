@@ -41,8 +41,8 @@ jobs:
 
     steps:
     - name: Download result for job 1
-        uses: actions/download-artifact@v1
-        with:
-          name: homework
+      uses: actions/download-artifact@v1
+      with:
+        name: homework
     - name: test cucumber
       run: bundle exec cucumber
