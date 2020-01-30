@@ -25,10 +25,10 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec cucumber features/capybara.feature
-        bundle exec cucumber features/named_driver_feature.feature
     - name: test
       if: failure() || success()
     - run: bundle exec cucumber features/named_driver_feature.feature
+
 
   # job_2:
   #   name: Job 2
