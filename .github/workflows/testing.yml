@@ -26,8 +26,7 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        sudo apt-get install xvfb
-        xvfb-run -a bundle exec cucumber features/capybara.feature
+        bundle exec cucumber features/capybara.feature
 
   job_2:
     name: Job 2
