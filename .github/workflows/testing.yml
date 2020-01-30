@@ -21,10 +21,13 @@ jobs:
         ruby-version: 2.6
     - run: ruby -v
     - name: Build and test with cucumber
+      if: failure
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec cucumber features/capybara.feature, features/named_driver_feature.feature
+        bundle exec cucumber features/capybara.feature
+    - name: test
+      run: bundle exec cucumber features/named_driver_feature.feature
 
   # job_2:
   #   name: Job 2
