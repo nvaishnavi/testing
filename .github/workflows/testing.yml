@@ -5,15 +5,15 @@ on:
     branches: master
 
 jobs:
-  build:
-
+  job_1:
+    name: Job 1
     runs-on: ubuntu-latest
     services:
       mongodb:
         image: mongo:4.0.10
         ports:
           - 27017:27017
-    
+
     steps:
     - uses: actions/checkout@v2
     - uses: eregon/use-ruby-action@v1
@@ -25,7 +25,22 @@ jobs:
     - name: Build and test with cucumber
       run: |
         gem install bundler
-        bundle install
-        bundle exec cucumber features/capybara.feature
-    - name: run test
-      run: bundle exec cucumber features/named_driver_feature.feature
+        bundle install --jobs 4 --retry 3
+        sudo apt-get install xvfb
+        xvfb-run -a bundle exec cucumber features/capybara.feature
+
+    job_2:
+      name: Job 2
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v2
+      - uses: eregon/use-ruby-action@v1
+        with:
+          ruby-version: 2.6
+      - run: ruby -v
+      - name: Build and test with cucumber
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec cucumber
