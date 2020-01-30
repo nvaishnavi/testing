@@ -15,6 +15,8 @@ jobs:
           - 27017:27017
 
     steps:
+    - name: my first step
+      if: success()
     - uses: actions/checkout@v2
     - uses: eregon/use-ruby-action@v1
       with:
