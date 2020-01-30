@@ -21,7 +21,7 @@ jobs:
         ruby-version: 2.6
     - run: ruby -v
     - name: Build and test with cucumber
-      if: failure
+      if: failure()
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
