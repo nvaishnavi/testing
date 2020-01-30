@@ -31,6 +31,7 @@ jobs:
   job_2:
     name: Job 2
     needs: job_1
+      even-if-failed: true
     runs-on: ubuntu-latest
 
     steps:
