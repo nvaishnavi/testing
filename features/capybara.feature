@@ -5,6 +5,7 @@ Feature: Capybara's cucumber integration
 
   @javascript
   Scenario: hello world
+    When I visit the root page
     Then I should see "Hello world!"
 
   @javascript
