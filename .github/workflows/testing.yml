@@ -26,7 +26,7 @@ jobs:
         bundle install --jobs 4 --retry 3
         bundle exec cucumber features/capybara.feature
     - name: test
-      if: failure()
+      if: failure() || success()
       run: bundle exec cucumber features/named_driver_feature.feature
 
   # job_2:
