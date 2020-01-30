@@ -7,6 +7,7 @@ on:
 jobs:
   job_1:
     name: Job 1
+    id: hello
     runs-on: ubuntu-latest
     services:
       mongodb:
@@ -27,6 +28,7 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec cucumber features/capybara.feature
+      if: always()
         bundle exec cucumber features/named_driver_feature.feature
 
   # job_2:
