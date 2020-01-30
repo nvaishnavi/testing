@@ -32,7 +32,7 @@ jobs:
     - name: test
       run: bundle exec cucumber features/capybara.feature
       if: failure() || success()
-      run: bundle exec cucumber features/named_driver_feature.feature
+    - run: bundle exec cucumber features/named_driver_feature.feature
 
   job_2:
     name: Job 2
