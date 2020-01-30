@@ -20,10 +20,8 @@ jobs:
       with:
         ruby-version: 2.6
     - run: ruby -v
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2
     - name: Build and test with cucumber
-      if: always()
+      if: success()
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
