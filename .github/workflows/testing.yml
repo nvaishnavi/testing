@@ -24,11 +24,11 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
     - name: Build and test with cucumber
+      if: always()
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec cucumber features/capybara.feature
-      if: always()
         bundle exec cucumber features/named_driver_feature.feature
 
   # job_2:
