@@ -31,6 +31,7 @@ jobs:
         name: my-artifact
         path: /home/runner/work/testing/testing/artifact
     - name: testing
+      if: failure() || success()
       run: bundle exec cucumber features/capybara.feature
     - name: test
       if: failure() || success()
