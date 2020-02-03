@@ -16,7 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: npm run test:e2e
     - uses: actions/upload-artifact@v1
       if: always()
       with:
