@@ -5,8 +5,7 @@ on:
     branches: master
 
 jobs:
-  job_1:
-    name: Job 1
+  cypress-run:
     runs-on: ubuntu-latest
     services:
       mongodb:
