@@ -16,13 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: capture
-      run: |
-        yarn capture
-    - uses: actions/upload-artifact@master
+    - run: npm run test:e2e
+    - uses: actions/upload-artifact@v1
+      if: always()
       with:
-        name: capture
-        path: capture
+        name: cypress-screenshots
+        path: cypress/screenshots
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
