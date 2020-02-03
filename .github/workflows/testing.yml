@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: mkdir -p /home/bdcvit.com/vaishnavin/Desktop/test/testing/features/artifact
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: my-artifact
