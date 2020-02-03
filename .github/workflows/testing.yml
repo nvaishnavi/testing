@@ -25,14 +25,13 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+    - name: testing
+      run: bundle exec cucumber features/capybara.feature
     - uses: actions/upload-artifact@v1
-      if: failure() || success()
+      if: failure()
       with:
         name: my-artifact
         path: /home/runner/work/testing/testing/artifact
-    - name: testing
-      if: failure() || success()
-      run: bundle exec cucumber features/capybara.feature
     - name: test
       if: failure() || success()
       run: bundle exec cucumber features/named_driver_feature.feature
