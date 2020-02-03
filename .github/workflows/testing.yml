@@ -16,12 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: mkdir -p /home/runner/work/testing/testing/
+    - run: mkdir -p /home/runner/work/testing/testing/artifact
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: my-artifact
-        path: /home/runner/work/testing/testing/
+        path: /home/runner/work/testing/testing/artifact
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
