@@ -16,12 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: cypress-io/github-action
-    - uses: actions/upload-artifact@v1
+    - run: mkdir -p /home/bdcvit.com/vaishnavin/Desktop/test/testing/features/artifact
+    - uses: actions/upload-artifact@v2
       if: failure()
       with:
-        name: cypress-screenshot
-        path: cypress/screenshots
+        name: my-artifact
+        path: /home/bdcvit.com/vaishnavin/Desktop/test/testing/features/artifact
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
