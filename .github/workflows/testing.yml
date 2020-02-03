@@ -16,10 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Take photo of github.com
-      uses: "lannonbr/puppeteer-screenshot-action@1.0.0"
+    - uses: cypress-io/github-action
+    - uses: actions/upload-artifact@v1
+      if: failure()
       with:
-        url: https://github.com
+        name: cypress-screenshot
+        path: cypress/screenshots
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
