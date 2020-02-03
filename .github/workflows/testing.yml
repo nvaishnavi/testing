@@ -5,7 +5,8 @@ on:
     branches: master
 
 jobs:
-  cypress-run:
+  job_1:
+    name: Job 1
     runs-on: ubuntu-latest
     services:
       mongodb:
@@ -15,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: cypress-io/github-action@v1
+    - run: mkdir -p /home/runner/work/testing/testing/artifact
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
@@ -25,30 +26,13 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
     - uses: actions/upload-artifact@v1
-      if: failure()
+      if: failure() || success()
       with:
-        name: cypress-screenshots
-        path: cypress/screenshots
+        name: my-artifact
+        path: /home/runner/work/testing/testing/artifact
     - name: testing
       if: failure() || success()
       run: bundle exec cucumber features/capybara.feature
     - name: test
-      if: failure()
+      if: failure() || success()
       run: bundle exec cucumber features/named_driver_feature.feature
-
-
-  # job_2:
-  #   name: Job 2
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - uses: eregon/use-ruby-action@v1
-  #     with:
-  #       ruby-version: 2.6
-  #   - run: ruby -v
-  #   - name: Build and test with cucumber
-  #     run: |
-  #       gem install bundler
-  #       bundle install --jobs 4 --retry 3
-  #       bundle exec cucumber
