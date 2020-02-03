@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: mkdir -p /home/runner/work/testing/testing/artifact
+    - run: mkdir -p /Desktop/test/testing/tmp/screenshots
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
@@ -31,7 +31,7 @@ jobs:
       if: failure()
       with:
         name: my-artifact
-        path: /home/runner/work/testing/testing/artifact
+        path: /Desktop/test/testing/tmp/screenshots
     - name: test
       if: failure() || success()
       run: bundle exec cucumber features/named_driver_feature.feature
