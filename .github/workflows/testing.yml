@@ -16,6 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Take photo of github.com
+      uses: "lannonbr/puppeteer-screenshot-action@1.0.0"
+      with:
+        url: https://github.com
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
