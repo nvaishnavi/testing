@@ -8,6 +8,7 @@ gem 'sass-rails', '~> 6.0.0'
 gem 'coffee-rails', '~> 5.0.0'
 
 gem 'xpath', github: 'teamcapybara/xpath'
+gem 'capybara-screenshot'
 
 group :doc do
   gem 'redcarpet', platforms: :mri
