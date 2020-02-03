@@ -16,12 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: mkdir -p /home/bdcvit.com/vaishnavin/Desktop/test/testing/features/artifact
-    - uses: actions/upload-artifact@v1
-      if: failure()
+    - name: capture
+      run: |
+        yarn capture
+    - uses: actions/upload-artifact@master
       with:
-        name: my-artifact
-        path: /home/bdcvit.com/vaishnavin/Desktop/test/testing/features/artifact
+        name: capture
+        path: capture
     - uses: eregon/use-ruby-action@v1
       with:
         ruby-version: 2.6
